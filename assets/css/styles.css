@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Base */
+html {
+	height: 100%;
+	box-sizing: border-box;
+	line-height: 1.5;
+	letter-spacing: 0;
+	font-size: 16px;
+}
+
+*,
+*:before,
+*:after {
+  	box-sizing: inherit;
+}
+
+body {
+	background-color: #111;
+	min-width: 320px;
+	min-height: 100%;
+	padding-bottom: 200px;
+	margin: 0;
+	font-family: "Poppins", sans-serif;
+	position: relative;
+	color: white;
+}
+
+h1, h2 {
+	font-weight: 600;
+}
+
+a {
+	color: white;
+}
+
+strong {
+	font-weight: 600;
+}
+
+
+/* Header */
+header {
+	background-color: #222;
+	box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.25);
+	margin: 0 auto 1em;
+	height: 75px;
+	position: sticky;
+	top: 0;
+	z-index: 2;
+	color: inherit;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+.header-container {
+	margin: auto;
+	max-width: 1150px;
+	height: 100%;
+}
+
+
+/* Navigation */
+.nav-container {
+	margin: 0;
+	float: left;
+	padding: 0;
+	list-style-type: none;
+}
+
+.nav-container li {
+	position: relative;
+	display: inline-block;
+}
+
+.nav-container li a {
+	background-color: rgba(255, 255, 255, 0);
+	padding: 0 1rem;
+	text-decoration: none;
+	height: 75px;
+	display: flex;
+	align-items: center;
+}
+
+.nav-container li a:hover {
+	background-color: rgba(255, 255, 255, 0.25);
+	transition: 0.1s;
+}
+
+.nav-container li a:active {
+	background-color: rgba(0, 0, 0, 0.25);
+	transition: 0.1s;
+}
+
+
+/* Main */
+main {
+	max-width: 1150px;
+	margin: auto;
+	margin-bottom: 100px;
+	display: flex;
+}
+
+main article {
+	background-color: #222;
+	padding: 1.5em;
+	width: 100%;
+	height: max-content;
+	box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.25);
+}
+
+main h1, h2 {
+	margin: 0;
+}
+
+main h1 {
+	font-size: 32px;
+}
+
+main p {
+	margin: 0 0 1em;
+}
+
+main p:last-child {
+	margin: 0;
+}
+
+
+/* Footer */
+footer {
+	background-color: #222;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.footer-container {
+	text-align: center;
+	padding: 2em;
+	height: 200px;
+	font-size: 14px;
+	color: #999;
+}
+
+.socials {
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+.socials a {
+	font-size: 24px;
+	text-decoration: none;
+	margin: 0 5px;
+	width: 24px;
+	text-align: center;
+}
+
+.socials a:hover {
+    transform: scale(1.1);
+    transition: 0.1s;
+}
+
+
+/* Mobile support */
+@media (max-width: 767px) {
+	.header-container {
+		display: flex;
+	}
+
+	.nav-container {
+		margin: 0;
+		padding: 25px;
+		background-color: #111;
+		position: absolute;
+		top: 75px;
+		left: 0;
+		translate: -100%;
+		width: 100%;
+		height: calc(100vh - 75px);
+		font-size: 24px;
+		transition: transform 0.25s ease;
+	}
+
+	.nav-container li {
+		display: block;
+	}
+
+	.nav-container li a {
+		position: relative;
+		padding: 10px 0;
+		float: unset;
+		text-align: left;
+		padding: 10px 0;
+		height: unset;
+	}
+
+	.menu-button {
+		float: left;
+		flex-direction: column;
+		position: absolute;
+		left: 25px;
+		top: 25px;
+		z-index: 1;
+		-webkit-user-select: none;
+		user-select: none;
+		width: 35px;
+		height: 25px;
+		cursor: pointer;
+	}
+	
+	.menu-button span {
+		top: 11px;
+	}
+	
+	.menu-button::after, .menu-button::before, .menu-button span {
+		background-color: #ffffff;
+		content: "";
+		height: 3px;
+		position: absolute;
+		left: 0;
+		right: 0;
+		transition: transform 0.25s ease, opacity 0.25s ease;
+	}
+
+	.menu-button:after {
+		bottom: 0;
+	}
+	
+	header.show-menu .menu-button::after, header.show-menu .menu-button::before {
+		opacity: 0;
+	}
+
+	header.show-menu span {
+		-webkit-transform: rotate(45deg);
+   		-o-transform: rotate(45deg);
+		transform: rotate(45deg);
+		transition: transform 0.25s ease, -webkit-transform 0.25s ease, -o-transform 0.25s ease;
+	}
+	
+	header.show-menu span:nth-child(2) {
+		-webkit-transform: rotate(-45deg);
+   		-o-transform: rotate(-45deg);
+		transform: rotate(-45deg);
+		transition: transform 0.25s ease, -webkit-transform 0.25s ease, -o-transform 0.25s ease;
+	}
+	
+	header.show-menu .nav-container {
+		transform: translateX(100%);
+	}
+}
