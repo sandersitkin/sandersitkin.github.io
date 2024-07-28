@@ -1,7 +1,7 @@
 # Domain
 domain: "sandersitkin.github.io"
 url: "https://sandersitkin.github.io"
-permalink: "/:categories/:title"
+permalink: "/:categories/:year-:month-:day/:title"
 
 # Metadata
 title: "Sander Sitkin"
@@ -9,8 +9,7 @@ description: "Personal website of Sander Sitkin."
 
 # Default values
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
     values:
       layout: "default"
