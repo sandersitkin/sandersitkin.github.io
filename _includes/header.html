@@ -9,7 +9,7 @@
 				{% for link in site.navigation %}
 					{% assign current = nil %}
 
-					{% if page.url contains link.url %}
+					{% if page.url == link.url %}
 						{% assign current = ' aria-current="page"'%}
 					{% endif %}
 
