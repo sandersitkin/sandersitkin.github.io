@@ -163,6 +163,32 @@ footer {
 
 /* Mobile support */
 @media (max-width: 767px) {
+	body.show-menu {
+		overflow: hidden;
+	}
+
+	body.show-menu .menu-button::after, body.show-menu .menu-button::before {
+		opacity: 0;
+	}
+
+	body.show-menu .menu-button span {
+		-webkit-transform: rotate(45deg);
+   		-o-transform: rotate(45deg);
+		transform: rotate(45deg);
+		transition: transform 0.25s ease, -webkit-transform 0.25s ease, -o-transform 0.25s ease;
+	}
+	
+	body.show-menu .menu-button span:nth-child(2) {
+		-webkit-transform: rotate(-45deg);
+   		-o-transform: rotate(-45deg);
+		transform: rotate(-45deg);
+		transition: transform 0.25s ease, -webkit-transform 0.25s ease, -o-transform 0.25s ease;
+	}
+	
+	body.show-menu .nav-container {
+		transform: translateX(100%);
+	}
+
 	.header-container {
 		display: flex;
 	}
@@ -228,27 +254,5 @@ footer {
 
 	.menu-button:after {
 		bottom: 0;
-	}
-	
-	header.show-menu .menu-button::after, header.show-menu .menu-button::before {
-		opacity: 0;
-	}
-
-	header.show-menu span {
-		-webkit-transform: rotate(45deg);
-   		-o-transform: rotate(45deg);
-		transform: rotate(45deg);
-		transition: transform 0.25s ease, -webkit-transform 0.25s ease, -o-transform 0.25s ease;
-	}
-	
-	header.show-menu span:nth-child(2) {
-		-webkit-transform: rotate(-45deg);
-   		-o-transform: rotate(-45deg);
-		transform: rotate(-45deg);
-		transition: transform 0.25s ease, -webkit-transform 0.25s ease, -o-transform 0.25s ease;
-	}
-	
-	header.show-menu .nav-container {
-		transform: translateX(100%);
 	}
 }
