@@ -1,3 +1,7 @@
+:root {
+	--content-max-width: 1280px;
+}
+
 *,
 *:before,
 *:after {
@@ -12,7 +16,7 @@ body {
 	letter-spacing: 0;
 	min-width: 320px;
 	min-height: 100vh;
-	padding-bottom: 200px;
+	padding-bottom: 192px;
 	margin: 0;
 	font-size: 16px;
 	position: relative;
@@ -47,22 +51,21 @@ header {
 }
 
 .header-container {
-	margin: auto;
-	max-width: 1150px;
+	max-width: var(--content-max-width);
 	height: 100%;
+	margin: auto;
 }
 
 
 /* Navigation */
 .nav-container {
-	margin: 0;
 	float: left;
+	margin: 0;
 	padding: 0;
-	list-style-type: none;
+	list-style: none;
 }
 
 .nav-container li {
-	position: relative;
 	display: inline-block;
 }
 
@@ -83,21 +86,20 @@ header {
 
 .nav-container li a:hover {
 	background-color: rgba(255, 255, 255, 0.25);
-	transition: 0.1s;
+	transition: background-color 0.1s;
 }
 
 .nav-container li a:active {
 	background-color: rgba(0, 0, 0, 0.25);
-	transition: 0.1s;
+	transition: background-color 0.1s;
 }
 
 
 /* Main */
 main {
-	max-width: 1150px;
+	max-width: var(--content-max-width);
 	margin: auto;
 	margin-bottom: 100px;
-	display: flex;
 }
 
 main article {
@@ -131,9 +133,11 @@ footer {
 }
 
 .footer-container {
+	max-width: var(--content-max-width);
+	margin: auto;
 	text-align: center;
 	padding: 2em;
-	height: 200px;
+	height: 192px;
 	font-size: 14px;
 	color: #999;
 }
@@ -191,9 +195,9 @@ footer {
 	}
 
 	.nav-container {
+		background-color: #111;
 		margin: 0;
 		padding: 25px;
-		background-color: #111;
 		position: absolute;
 		top: 75px;
 		left: 0;
@@ -217,8 +221,7 @@ footer {
 	}
 
 	.nav-container li a[aria-current="page"] {
-		border: unset;
-		padding-block-start: unset;
+		border: 0;
 	}
 
 	.menu-button {
@@ -228,11 +231,11 @@ footer {
 		left: 25px;
 		top: 25px;
 		z-index: 1;
-		-webkit-user-select: none;
-		user-select: none;
 		width: 35px;
 		height: 25px;
 		cursor: pointer;
+		-webkit-user-select: none;
+		user-select: none;
 	}
 	
 	.menu-button span {
