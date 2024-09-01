@@ -1,4 +1,5 @@
 :root {
+	--header-height: 64px;
 	--content-max-width: 1280px;
 }
 
@@ -15,7 +16,7 @@ body {
 	line-height: 1.5;
 	letter-spacing: 0;
 	min-width: 320px;
-	min-height: 100vh;
+	min-height: 100svh;
 	padding-bottom: 192px;
 	margin: 0;
 	font-size: 16px;
@@ -40,8 +41,8 @@ strong {
 header {
 	background-color: #222;
 	box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.25);
-	margin: 0 auto 1em;
-	height: 75px;
+	margin: 0 auto 1rem;
+	height: var(--header-height);
 	position: sticky;
 	top: 0;
 	z-index: 2;
@@ -58,24 +59,25 @@ header {
 
 
 /* Navigation */
-.nav-container {
+nav {
 	float: left;
+}
+
+.nav-container {
+	display: flex;
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
 
-.nav-container li {
-	display: inline-block;
-}
-
 .nav-container li a {
-	background-color: rgba(255, 255, 255, 0);
 	padding: 0 1rem;
 	text-decoration: none;
-	height: 75px;
+	height: var(--header-height);
 	display: flex;
 	align-items: center;
+	opacity: 0.75;
+	transition: opacity 0.1s;
 }
 
 .nav-container li a[aria-current="page"] {
@@ -84,14 +86,8 @@ header {
 	border-color: white;
 }
 
-.nav-container li a:hover {
-	background-color: rgba(255, 255, 255, 0.25);
-	transition: background-color 0.1s;
-}
-
-.nav-container li a:active {
-	background-color: rgba(0, 0, 0, 0.25);
-	transition: background-color 0.1s;
+.nav-container li a:hover, .nav-container li a[aria-current="page"] {
+	opacity: 1;
 }
 
 
@@ -99,7 +95,7 @@ header {
 main {
 	max-width: var(--content-max-width);
 	margin: auto;
-	margin-bottom: 100px;
+	margin-bottom: 8rem;
 }
 
 main article {
@@ -136,15 +132,15 @@ footer {
 	max-width: var(--content-max-width);
 	margin: auto;
 	text-align: center;
-	padding: 2em;
+	padding: 2rem;
 	height: 192px;
-	font-size: 14px;
+	font-size: 0.9em;
 	color: #999;
 }
 
 .socials {
 	display: flex;
-	gap: 1em;
+	gap: 1rem;
 	justify-content: center;
 	-webkit-user-select: none;
 	user-select: none;
@@ -192,6 +188,7 @@ footer {
 
 	.header-container {
 		display: flex;
+		align-items: center;
 	}
 
 	.nav-container {
@@ -203,20 +200,14 @@ footer {
 		left: 0;
 		translate: -100%;
 		width: 100%;
-		height: calc(100vh - 75px);
+		height: calc(100svh - var(--header-height));
 		font-size: 24px;
+		flex-direction: column;
 		transition: transform 0.25s ease;
 	}
 
-	.nav-container li {
-		display: block;
-	}
-
 	.nav-container li a {
-		position: relative;
 		padding: 10px 0;
-		float: unset;
-		text-align: left;
 		height: unset;
 	}
 
@@ -225,21 +216,13 @@ footer {
 	}
 
 	.menu-button {
-		float: left;
-		flex-direction: column;
-		position: absolute;
-		left: 25px;
-		top: 25px;
-		z-index: 1;
+		position: relative;
+		margin-left: 1.5rem;
 		width: 35px;
 		height: 25px;
 		cursor: pointer;
 		-webkit-user-select: none;
 		user-select: none;
-	}
-	
-	.menu-button span {
-		top: 11px;
 	}
 	
 	.menu-button::after, .menu-button::before, .menu-button span {
@@ -254,5 +237,9 @@ footer {
 
 	.menu-button:after {
 		bottom: 0;
+	}
+
+	.menu-button span {
+		top: 11px;
 	}
 }
