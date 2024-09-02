@@ -150,12 +150,11 @@ footer {
 	font-size: 24px;
 	text-decoration: none;
 	width: 24px;
-	opacity: 0.5;
 }
 
 .socials a:hover {
-	opacity: 1;
-    transition: opacity 0.1s;
+    transform: scale(1.1);
+    transition: 0.1s;
 }
 
 
