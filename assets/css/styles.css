@@ -1,7 +1,19 @@
 :root {
-	color-scheme: dark;
+	color-scheme: light dark;
 	--header-height: 64px;
 	--content-max-width: 1280px;
+	--background-color: light-dark(#eeeeee, #111111);
+	--container-color: light-dark(#ffffff, #222222);
+	--text-color: light-dark(#111111, #ffffff);
+	--secondary-text-color: light-dark(#666666, #999999);
+}
+
+[data-theme="light"] {
+	color-scheme: light;
+}
+
+[data-theme="dark"] {
+	color-scheme: dark;
 }
 
 *, *:before, *:after {
@@ -9,8 +21,8 @@
 }
 
 body {
-	background: #111111;
-	color: #ffffff;
+	background: var(--background-color);
+	color: var(--text-color);
 	font-family: "Poppins", sans-serif;
 	line-height: 1.5;
 	min-width: 320px;
@@ -20,52 +32,64 @@ body {
 	flex-direction: column;
 }
 
-h1, h2 {
-	font-weight: 600;
-	margin: 0;
+a {
+	color: var(--text-color);
 }
 
 h1 {
 	font-size: 2rem;
 }
 
-p {
-	margin: 0 0 1rem;
+h1, h2, p {
+	margin: 0;
 }
 
-a {
-	color: #ffffff;
-}
-
-strong {
+h1, h2, strong {
 	font-weight: 600;
+}
+
+p:not(:last-child) {
+	margin-bottom: 1rem;
+}
+
+select {
+	background-color: var(--background-color);
+	font: inherit;
+	padding: 0.5rem;
+	border: 1px solid var(--secondary-text-color);
+}
+
+select:hover, select:focus {
+	border-color: var(--text-color);
 }
 
 
 /* Header */
 header {
-	background: #222222;
-	box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.25);
+	background: var(--container-color);
+	box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
 	margin-bottom: 1rem;
 	position: sticky;
 	top: 0;
-	z-index: 2;
+	z-index: 1;
 	-webkit-user-select: none;
 	user-select: none;
 }
 
 .header-container {
+	display: flex;
 	width: min(100% - 2rem, var(--content-max-width));
 	height: var(--header-height);
 	margin-inline: auto;
+	align-items: center;
+}
+
+.theme-picker {
+	margin-left: auto;
 }
 
 
 /* Navigation */
-nav {
-	float: left;
-}
-
 nav ul {
 	display: flex;
 	margin: 0;
@@ -74,7 +98,7 @@ nav ul {
 }
 
 nav ul li a {
-	padding: 0 1rem;
+	padding-inline: 1rem;
 	text-decoration: none;
 	height: var(--header-height);
 	display: flex;
@@ -85,10 +109,10 @@ nav ul li a {
 
 nav ul li a[aria-current="page"] {
 	padding-top: 0.5rem;
-	border-bottom: 0.5rem solid #ffffff;
+	border-bottom: 0.5rem solid var(--text-color);
 }
 
-nav ul li a:hover, nav ul li a[aria-current="page"] {
+nav ul li a:focus, nav ul li a:hover, nav ul li a[aria-current="page"] {
 	opacity: 1;
 }
 
@@ -96,25 +120,19 @@ nav ul li a:hover, nav ul li a[aria-current="page"] {
 /* Main */
 main {
 	width: min(100% - 2rem, var(--content-max-width));
-	margin-inline: auto;
-	margin-bottom: 8rem;
+	margin: 0 auto 8rem auto;
 }
 
 main article {
-	background: #222222;
+	background: var(--container-color);
+	box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
 	padding: 1.5rem;
-	height: max-content;
-	box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.25);
-}
-
-main p:last-child {
-	margin: 0;
 }
 
 
 /* Footer */
 footer {
-	background: #222222;
+	background: var(--container-color);
 	margin-top: auto;
 }
 
@@ -122,32 +140,37 @@ footer {
 	width: min(100% - 4rem, var(--content-max-width));
 	margin-inline: auto;
 	text-align: center;
-	padding: 3rem 0;
+	padding-block: 3rem;
 	font-size: 0.9rem;
-	color: #999999;
+	color: var(--secondary-text-color);
 }
 
 .socials {
 	display: flex;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	flex-wrap: wrap;
 	gap: 1rem;
 	justify-content: center;
 	-webkit-user-select: none;
 	user-select: none;
 }
 
-.socials a {
+.socials li a {
+	display: block;
 	font-size: 24px;
 	text-decoration: none;
 }
 
 
-/* Mobile support */
+/* Mobile */
 @media (width <= 768px) {
 	body.show-menu {
 		overflow: hidden;
 	}
 
-	body.show-menu .menu-button::after, body.show-menu .menu-button::before {
+	body.show-menu .menu-button::before, body.show-menu .menu-button::after {
 		opacity: 0;
 	}
 
@@ -165,8 +188,6 @@ footer {
 
 	.header-container {
 		width: calc(100% - 3rem);
-		display: flex;
-		align-items: center;
 	}
 
 	.menu-button {
@@ -178,9 +199,9 @@ footer {
 		user-select: none;
 	}
 	
-	.menu-button::after, .menu-button::before, .menu-button span {
+	.menu-button::before, .menu-button::after, .menu-button span {
 		content: "";
-		background: #ffffff;
+		background: var(--text-color);
 		height: 3px;
 		position: absolute;
 		left: 0;
@@ -197,8 +218,7 @@ footer {
 	}
 
 	nav ul {
-		background: #111111;
-		margin: 0;
+		background: var(--background-color);
 		padding: 2rem;
 		position: absolute;
 		top: var(--header-height);

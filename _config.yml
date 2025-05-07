@@ -1,20 +1,16 @@
-# Domain
 domain: "sandersitkin.github.io"
 url: "https://sandersitkin.github.io"
 permalink: "/:categories/:year-:month-:day/:title"
 
-# Metadata
 title: "Sander Sitkin"
 description: "Personal website of Sander Sitkin."
 
-# Navigation
 navigation:
-  - title: Home
-    url: /
-  - title: About
-    url: /about
+  - title: "Home"
+    url: "/"
+  - title: "About"
+    url: "/about"
 
-# Default values
 defaults:
   - scope:
       path: ""

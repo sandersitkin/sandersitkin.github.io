@@ -1,6 +1,6 @@
 <header>
 	<div class="header-container">
-		<a class="menu-button" onclick="toggleMobileMenu()">
+		<a class="menu-button">
 			<span></span>
 			<span></span>
 		</a>
@@ -17,5 +17,10 @@
 				{% endfor %}
 			</ul>
 		</nav>
+		<select class="theme-picker" id="theme-picker" title="Theme picker">
+			<option value="system">System</option>
+			<option value="light">Light</option>
+			<option value="dark">Dark</option>
+		</select>
 	</div>
 </header>
