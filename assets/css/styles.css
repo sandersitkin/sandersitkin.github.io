@@ -1,10 +1,9 @@
 :root {
-	color-scheme: light dark;
 	--header-height: 64px;
 	--content-max-width: 1280px;
 	--background-color: light-dark(#eeeeee, #111111);
 	--container-color: light-dark(#ffffff, #222222);
-	--text-color: light-dark(#111111, #ffffff);
+	--text-color: light-dark(#333333, #ffffff);
 	--secondary-text-color: light-dark(#666666, #999999);
 }
 
@@ -16,18 +15,21 @@
 	color-scheme: dark;
 }
 
-*, *:before, *:after {
+*, *::before, *::after {
   	box-sizing: border-box;
 }
 
+body, h1, h2, p {
+	margin: 0;
+}
+
 body {
-	background: var(--background-color);
+	background-color: var(--background-color);
 	color: var(--text-color);
 	font-family: "Poppins", sans-serif;
 	line-height: 1.5;
 	min-width: 320px;
 	min-height: 100svh;
-	margin: 0;
 	display: flex;
 	flex-direction: column;
 }
@@ -38,10 +40,6 @@ a {
 
 h1 {
 	font-size: 2rem;
-}
-
-h1, h2, p {
-	margin: 0;
 }
 
 h1, h2, strong {
@@ -66,7 +64,7 @@ select:hover, select:focus {
 
 /* Header */
 header {
-	background: var(--container-color);
+	background-color: var(--container-color);
 	box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
 	margin-bottom: 1rem;
 	position: sticky;
@@ -124,7 +122,7 @@ main {
 }
 
 main article {
-	background: var(--container-color);
+	background-color: var(--container-color);
 	box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
 	padding: 1.5rem;
 }
@@ -132,7 +130,7 @@ main article {
 
 /* Footer */
 footer {
-	background: var(--container-color);
+	background-color: var(--container-color);
 	margin-top: auto;
 }
 
@@ -158,9 +156,13 @@ footer {
 }
 
 .socials li a {
-	display: block;
-	font-size: 24px;
 	text-decoration: none;
+}
+
+.socials li a i {
+	display: block;
+	width: auto;
+	font-size: 24px;
 }
 
 
@@ -201,7 +203,7 @@ footer {
 	
 	.menu-button::before, .menu-button::after, .menu-button span {
 		content: "";
-		background: var(--text-color);
+		background-color: var(--text-color);
 		height: 3px;
 		position: absolute;
 		left: 0;
@@ -209,7 +211,7 @@ footer {
 		transition: rotate 0.25s ease, opacity 0.25s ease;
 	}
 
-	.menu-button:after {
+	.menu-button::after {
 		bottom: 0;
 	}
 
@@ -218,7 +220,7 @@ footer {
 	}
 
 	nav ul {
-		background: var(--background-color);
+		background-color: var(--background-color);
 		padding: 2rem;
 		position: absolute;
 		top: var(--header-height);
