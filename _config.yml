@@ -5,12 +5,6 @@ permalink: "/:categories/:year-:month-:day/:title"
 title: "Sander Sitkin"
 description: "Personal website of Sander Sitkin."
 
-navigation:
-  - title: "Home"
-    url: "/"
-  - title: "About"
-    url: "/about"
-
 defaults:
   - scope:
       path: ""
