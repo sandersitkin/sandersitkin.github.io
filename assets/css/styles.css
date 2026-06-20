@@ -64,8 +64,8 @@ select {
 	border: 1px solid var(--secondary-text-color);
 }
 
-select:hover,
-select:focus {
+select:focus,
+select:hover {
 	border-color: var(--text-color);
 }
 
