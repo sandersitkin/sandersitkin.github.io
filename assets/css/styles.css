@@ -148,6 +148,7 @@ footer {
 	text-align: center;
 	padding-block: 3rem;
 	font-size: 0.9rem;
+	text-wrap: balance;
 	color: var(--secondary-text-color);
 }
 
@@ -252,7 +253,7 @@ footer {
 	nav ul li a,
 	nav ul li a[aria-current="page"] {
 		height: unset;
+		border: none;
 		padding: 0;
-		border: 0;
 	}
 }

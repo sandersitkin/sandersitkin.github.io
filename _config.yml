@@ -1,9 +1,10 @@
-domain: "sandersitkin.github.io"
 url: "https://sandersitkin.github.io"
 permalink: "/:categories/:year-:month-:day/:title"
 
 title: "Sander Sitkin"
 description: "Personal website of Sander Sitkin."
+
+lang: "en-GB"
 
 defaults:
   - scope:

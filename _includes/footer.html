@@ -1,10 +1,10 @@
 <footer>
 	<div class="footer-container">
 		<p>
-			Brought to the world by yours truly, Sander Sitkin.<br />
+			Brought to the world by yours truly &mdash;<br />
 			&copy; Sander Sitkin {{ site.time | date: "%Y" }}, all rights reserved.
 		</p>
-		<ul class="socials">
+		<ul class="socials" aria-label="Socials">
 			{% for social in site.data.socials %}
 				<li>
 					<a href="{{ social.url }}" target="_blank" rel="noreferrer" title="{{ social.title }}">
