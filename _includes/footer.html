@@ -1,17 +1,42 @@
 <footer>
 	<div class="footer-container">
-		<p>
-			Brought to the world by yours truly &mdash;<br />
-			&copy; Sander Sitkin {{ site.time | date: "%Y" }}, all rights reserved.
-		</p>
-		<ul class="socials" aria-label="Socials">
-			{% for social in site.data.socials %}
-				<li>
-					<a href="{{ social.url }}" target="_blank" rel="noreferrer" title="{{ social.title }}">
-						<i class="{{ social.icon }}" aria-hidden="true"></i>
-					</a>
-				</li>
-			{% endfor %}
-		</ul>
+		<div class="footer-upper">
+			<div class="footer-column">
+				<h3>{{ site.title }}</h3>
+				<p>{{ site.description }}</p>
+			</div>
+			<div class="footer-column">
+				<h3>Skills</h3>
+				<ul>
+					{% for skill in site.data.skills %}
+						<li><p>{{ skill.name }}</p></li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="footer-column">
+				<h3>Technologies</h3>
+				<ul>
+					{% for technology in site.data.technologies %}
+						<li><p>{{ technology.name }}</p></li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+		<hr />
+		<div class="footer-lower">
+			<p>
+				Brought to the world by yours truly &mdash;<br />
+				&copy; Sander Sitkin {{ site.time | date: "%Y" }}, all rights reserved.
+			</p>
+			<ul class="socials" aria-label="Socials">
+				{% for social in site.data.socials %}
+					<li>
+						<a href="{{ social.url }}" target="_blank" rel="noreferrer" title="{{ social.title }}">
+							<i class="{{ social.icon }}" aria-hidden="true"></i>
+						</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
 	</div>
 </footer>

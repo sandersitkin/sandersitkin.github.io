@@ -2,9 +2,10 @@ url: "https://sandersitkin.github.io"
 permalink: "/:categories/:year-:month-:day/:title"
 
 title: "Sander Sitkin"
-description: "Personal website of Sander Sitkin."
+description: "Personal website of software and web developer Sander Sitkin."
 
 lang: "en-GB"
+timezone: "Europe/Helsinki"
 
 defaults:
   - scope:
